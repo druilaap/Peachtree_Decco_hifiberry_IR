@@ -2,13 +2,15 @@
 
 ![Peachtree decco amplifier and a pi zero 2 W with a IR led](peachtree-pi.jpeg)
 
-This project automates the control of a Peachtree Decco amplifier using a Raspberry Pi with a Hifiberry DAC and a secondary Raspberry Pi configured as an IR remote. The goal is to integrate modern streaming capabilities (Spotify, AirPlay, Roon, etc.) with the Peachtree Decco and automate power and input controls.
+This project automates the control of a Peachtree Decco amplifier using a Raspberry Pi with a Hifiberry DAC and a secondary Raspberry Pi configured as an IR remote. The goal is to integrate modern streaming capabilities (Spotify, AirPlay, Roon, etc.) with the Peachtree Decco from an external raspberry pi running hifiberry OS, and the automate power and input controls through a infrared remote running on a second raspberry pi.
 
-The Peachtree Decco amplifier is known for its excellent sound, but it has a few limitations:
+The Peachtree Decco amplifier (2007) is known for its excellent sound, but it has a few limitations:
 1. The USB input port is prone to breaking. Mine broke twice. Didn't bother to fix it the second time.
 2. Volume and input selection need to be manually adjusted after powering on.
 
-To solve the broken USB issue, I added a Raspberry Pi running Hifiberry OS with a [hifiberry DAC](https://www.hifiberry.com/shop/boards/dacplus-dsp/) HAT , allowing me to stream audio remotely. To further automate the process, I created this project to manage power and input switching automatically based on audio signals detected from the Hifiberry.
+To solve the broken USB issue, I added a Raspberry Pi running Hifiberry OS with a [hifiberry DAC](https://www.hifiberry.com/shop/boards/dacplus-dsp/) HAT , allowing me to stream audio remotely. 
+
+To further automate the process, I created this project to simulate the remote, and turn the decco amplifier on when the music starts playing on the hifiberry. This sequence takes 30 seconds, because the analog tube needs to warm up. 
 
 This setup includes features for automatically turning the amplifier on and off based on whether audio is playing, ensuring seamless integration with your audio system.
 
@@ -130,4 +132,4 @@ This project brings modern convenience to the Peachtree Decco amplifier, combini
 ## Future improvements ##
 
 - Mount the pi, including the IR led,  inside the decco housing, to make it neater
-- Add LIRC to the hifiberryOS, so that i can run both the DAC and the IR led from the same raspberry PI.
+- Add LIRC to the hifiberryOS, so that i can run both the DAC and the IR led from the same raspberry PI. This requires 
