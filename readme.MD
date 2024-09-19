@@ -15,6 +15,7 @@ This project automates the control of a Peachtree Decco amplifier ususing a seco
 
 This setup includes features for automatically turning the amplifier on and off based on the presence of audio signals, ensuring a seamless integration with your audio system.
 
+This project is made possible through open source, including the LIRC config file for the peachtree remote from   [Part of the Thing](https://partofthething.com/thoughts/a-lirc-config-file-for-the-peachtree-audio-decco-ir-remote-control/) 
 
 
 Pre-requisites:
