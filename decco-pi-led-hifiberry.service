@@ -1,0 +1,15 @@
+[Unit]
+Description=peachtree amplifier LIRC automator
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 /usr/local/bin/decco-pi-led-hifiberry.py
+Restart=always
+User=root
+WorkingDirectory=/usr/local/bin
+StandardOutput=inherit
+StandardError=inherit
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=multi-user.target
