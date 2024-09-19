@@ -1,5 +1,7 @@
 Automating my Peachtree Decco with a Hifiberry and a Raspberry Pi IR Remote
 
+![Peachtree decco amplifier and a pi zero 2 W with a IR led](peachtree-pi.jpeg)
+
 I have a Peachtree Decco amplifier. Great amplifier with a single tube for it pre-amp stage from 2008. But is has 2 annoyances. 
 1) The input USB port broke. Got it fixed once, but didn't bother the second time. And 
 2) When turning it one, the volume and channel selector need to be operated manually. 
@@ -59,6 +61,8 @@ irsend SEND_ONCE decco AUX1
 if the command finished without an error, the pi is configured correctly. If you still get an Input/output error, then the LIRC/config pins is not yet complete.
 
 - Now connect the IR LED, the long leg into the Pin 15, and the short leg into the ground.  For the prototype, no soldering is required.  For debugging, you can also put in a regular LED in the some holes to visually see if the IR signals are being sent.
+
+![side view of the pi zero 2 W with a IR led inserted.](pi-side.jpeg)
 
 - as an optional step, you can also add a transistor and a resistor to brighten the LED so that it can cover larger distances.
 
@@ -203,3 +207,6 @@ This setup includes features for automatically turning the amplifier on and off 
 - Enable automatic software updates.
 
 This project brings modern convenience to the Peachtree Decco amplifier, combining Raspberry Pi hardware with automation for a fully integrated audio experience.
+
+
+![top view of the pi zero 2 W with a IR led inserted.](pi-top.jpeg)
