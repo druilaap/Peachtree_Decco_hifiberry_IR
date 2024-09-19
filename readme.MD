@@ -1,20 +1,19 @@
 ### Automating my Peachtree Decco with a Hifiberry and a Raspberry Pi IR Remote
 
-![Peachtree decco amplifier and a pi zero 2 W with a IR led](peachtree-pi.jpeg)
+![Peachtree Audio Decco amplifier and a pi zero 2 W with a IR led](peachtree-pi.jpeg)
 
 This project automates the control of a Peachtree Decco amplifier using a Raspberry Pi with a Hifiberry DAC and a secondary Raspberry Pi configured as an IR remote. The goal is to integrate modern streaming capabilities (Spotify, AirPlay, Roon, etc.) with the Peachtree Decco from an external raspberry pi running hifiberry OS, and the automate power and input controls through a infrared remote running on a second raspberry pi.
 
-The Peachtree Decco amplifier (2007) is known for its excellent sound, but it has a few limitations:
+The Peachtree Audio Decco amplifier (2007) is known for its excellent sound, but it has a few limitations:
 1. The USB input port is prone to breaking. Mine broke twice. Didn't bother to fix it the second time.
 2. Volume and input selection need to be manually adjusted after powering on.
 
 To solve the broken USB issue, I added a Raspberry Pi running Hifiberry OS with a [hifiberry DAC](https://www.hifiberry.com/shop/boards/dacplus-dsp/) HAT , allowing me to stream audio remotely. 
 
-To further automate the process, I created this project to simulate the remote, and turn the decco amplifier on when the music starts playing on the hifiberry. This sequence takes 30 seconds, because the analog tube needs to warm up. 
+To further automate the process, I created this project to simulate the remote, and turn the decco amplifier on when the music starts playing on the hifiberry. This sequence takes 30 seconds, because the analog tube needs to warm up. And I have no patience to walk to the amplifier and turn it on.  Automate everything.
 
-This setup includes features for automatically turning the amplifier on and off based on whether audio is playing, ensuring seamless integration with your audio system.
+This project is made possible through the LIRC config file for the peachtree remote from   [Part of the Thing](https://partofthething.com/thoughts/a-lirc-config-file-for-the-peachtree-audio-decco-ir-remote-control/) 
 
-This project is made possible through open source, including the LIRC config file for the peachtree remote from   [Part of the Thing](https://partofthething.com/thoughts/a-lirc-config-file-for-the-peachtree-audio-decco-ir-remote-control/) 
 
 ### Prerequisites
 - Peachtree Decco amplifier
@@ -54,7 +53,7 @@ This project is made possible through open source, including the LIRC config fil
    driver = default
    ```
 
-6. **Install the Python script:**
+6. **Install the Python script and other fiels:**
    Make the script executable and copy it to the correct directories:
    ```bash
    cp decco-pi-led-hifiberry.py /usr/local/bin/
@@ -62,6 +61,7 @@ This project is made possible through open source, including the LIRC config fil
    cp decco.lircd.conf /etc/lirc/lircd.conf.d/
    cp decco-pi-led-hifiberry.service /etc/systemd/system/decco-pi-led-hifiberry.service
    ```
+
 
 7. **Reboot the Raspberry Pi:**
    Reboot to apply the GPIO configuration changes:
@@ -131,5 +131,6 @@ This project brings modern convenience to the Peachtree Decco amplifier, combini
 
 ## Future improvements ##
 
-- Mount the pi, including the IR led,  inside the decco housing, to make it neater
+
+- Mount the pi, including soldering the IR led,  inside the decco housing, to make it neater
 - Add LIRC to the hifiberryOS, so that i can run both the DAC and the IR led from the same raspberry PI. This requires 
